@@ -70,6 +70,19 @@ def test_duplicate_signup_is_rejected():
     assert response.json()["detail"] == "Student already signed up for this activity"
 
 
+def test_duplicate_signup_is_rejected_case_insensitive():
+    # Arrange
+    reset_activities()
+    email = "MICHAEL@MERGINGTON.EDU"
+
+    # Act
+    response = client.post("/activities/Chess Club/signup?email=" + email)
+
+    # Assert
+    assert response.status_code == 400
+    assert response.json()["detail"] == "Student already signed up for this activity"
+
+
 def test_signup_for_missing_activity_returns_404():
     # Arrange
     reset_activities()
