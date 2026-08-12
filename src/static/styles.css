@@ -145,6 +145,11 @@ section h3 {
   box-shadow: 0 4px 10px rgba(185, 28, 28, 0.35);
 }
 
+.delete-participant-btn:focus-visible {
+  outline: 3px solid #1a237e;
+  outline-offset: 2px;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
